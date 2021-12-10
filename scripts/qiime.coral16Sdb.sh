@@ -14,7 +14,7 @@
 
 ssh -p 65000 clarapires@146.164.75.194
 # Passwd
-clarap1234
+
 
 # Mudar de diretorio
 cd /media/HD2/Coral16SDB
