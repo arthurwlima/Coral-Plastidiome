@@ -7,4 +7,4 @@ This study focus on the taxonomic and ecological evaluation of microalgae plasti
 
 
 
-<img src="fluxoxograma_geral.33.png" alt="hi" class="inline"/>
+<img src="fluxoxograma_geral.33.png" width="48" alt="hi" class="inline"/>
