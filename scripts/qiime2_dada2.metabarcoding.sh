@@ -34,19 +34,51 @@
 #>reverse_revcomp
 #ATTAGAWACCCNNGTAGTCC
 ########################################################################
+########################################################################
+#
+# RODANDO O CUTADAPT MANUAL - REPETIR ESSE BLOCO PARA CADA BIBLIOTECA
+#
 #READ 1
-cutadapt -g "GTGYCAGCMGCCGCGGTAA" SRR9071783_1.fastq -o 1FR1.temp.fastq
-cutadapt -a "TTACCGCGGCKGCTGRCAC" 1FR1.temp.fastq -o 1FR1.temp1.fastq
-cutadapt -a "GGACTACNVGGGTWTCTAAT" 1FR1.temp1.fastq -o 1FR1.temp2.fastq
-cutadapt -a "ATTAGAWACCCBNGTAGTCC" 1FR1.temp2.fastq -o SRR9071783.cutadapt.R1.fastq
+# cutadapt -g "GTGYCAGCMGCCGCGGTAA" SRR9071783_1.fastq -o 1FR1.temp.fastq
+# cutadapt -a "TTACCGCGGCKGCTGRCAC" 1FR1.temp.fastq -o 1FR1.temp1.fastq
+# cutadapt -a "GGACTACNVGGGTWTCTAAT" 1FR1.temp1.fastq -o 1FR1.temp2.fastq
+# cutadapt -a "ATTAGAWACCCBNGTAGTCC" 1FR1.temp2.fastq -o SRR9071783.cutadapt.R1.fastq
 
 #READ2
-cutadapt -a "GTGYCAGCMGCCGCGGTAA" SRR9071783_2.fastq -o 1FR2.temp.fastq
-cutadapt -a "TTACCGCGGCKGCTGRCAC" 1FR2.temp.fastq -o 1FR2.temp1.fastq
-cutadapt -g "GGACTACNVGGGTWTCTAAT" 1FR2.temp1.fastq -o 1FR2.temp2.fastq
-cutadapt -a "ATTAGAWACCCBNGTAGTCC" 1FR2.temp2.fastq -o SRR9071783.cutadapt.R2.fastq
+# cutadapt -a "GTGYCAGCMGCCGCGGTAA" SRR9071783_2.fastq -o 1FR2.temp.fastq
+# cutadapt -a "TTACCGCGGCKGCTGRCAC" 1FR2.temp.fastq -o 1FR2.temp1.fastq
+# cutadapt -g "GGACTACNVGGGTWTCTAAT" 1FR2.temp1.fastq -o 1FR2.temp2.fastq
+# cutadapt -a "ATTAGAWACCCBNGTAGTCC" 1FR2.temp2.fastq -o SRR9071783.cutadapt.R2.fastq
+#
+# rm *temp*fastq
+########################################################################
 
-rm *temp*fastq
+########################################################################
+# 20220125 - AUTOMATIZANDO O CUTADAPT COM UM LOOP 'for' EM bash
+# Removendo os arquivos temporarios em cada loop, para economizar 
+# espaço no disco 
+########################################################################
+# FORWARD READS
+for i in *_1.fastq; 
+  do 
+	echo $i;
+	cutadapt -g "GTGYCAGCMGCCGCGGTAA" $i -o temp.$i > $i.log;
+    cutadapt -a "TTACCGCGGCKGCTGRCAC" temp.$i -o temp1.$i > $i.log1;
+    cutadapt -a "GGACTACNVGGGTWTCTAAT" temp1.$i -o temp2.$i > $i.log2;
+    cutadapt -a "ATTAGAWACCCBNGTAGTCC" temp2.$i -o $i.cutadapt.R1.fastq > $i.log3;
+    rm *temp*;
+  done
+
+# REVERSE READS
+for j in *_2.fastq; 
+  do 
+	echo $j;
+	cutadapt -a "GTGYCAGCMGCCGCGGTAA" $j -o temp.$j > $j.log;
+    cutadapt -a "TTACCGCGGCKGCTGRCAC" temp.$j -o temp1.$j > $j.log1;
+    cutadapt -g "GGACTACNVGGGTWTCTAAT" temp1.$j -o temp2.$j > $j.log2;
+    cutadapt -a "ATTAGAWACCCBNGTAGTCC" temp2.$j -o $j.cutadapt.R1.fastq > $j.log3
+    rm *temp*;
+  done
 
 
 ### FASTQC  ############################################################
