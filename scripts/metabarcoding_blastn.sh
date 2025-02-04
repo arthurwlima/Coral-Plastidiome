@@ -3,22 +3,14 @@
 #
 # 1 - Pre-processing: Cutadapt and DEMUX
 # 2 - Dereplication with DADA2:
-# https://benjjneb.github.io/dada2/tutorial.html
-# Our starting point is a set of Illumina-sequenced paired-end fastq 
-# files that have been split (or “demultiplexed”) by sample and from 
-# which the barcodes/adapters have already been removed.
+# 3 - Taxonomic classification of representative sequences
+# 
+# In this script, 16S-V4 metabarcoding data from the manuscript below are used as ana example:
 #
-# 3 - Taxonomic classification of representative sequences, similar to
-# clone processing.
+# Vilela CL, Villela HD, Rachid CT, Carmo FL, Vermelho AB, Peixoto RS. Exploring the diversity 
+# and biotechnological potential of cultured and uncultured coral-associated bacteria. 
+# Microorganisms. 2021 Oct 27;9(11):2235.results from the 
 ########################################################################
-
-# Download the SRA file
-
-while read line
-do
-  prefetch -X 99999999 $line > "${line}.prefetch.log"
-  fastq-dump "$DATA_DIR/$line.sra" --split-files -O ./ > "${line}.fastqdump.log"
-done < amplicon.csv &
 
 ########################################################################
 # CUTADAPT - Tool to remove primers from amplicons
