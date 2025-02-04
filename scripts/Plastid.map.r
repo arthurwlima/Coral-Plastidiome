@@ -1,13 +1,5 @@
 ####### 2024-05-15 #############################################################
-# Mapa das amostras no inventario de plastideos
-# Duas amostras com lat-long NA na tabela do inventario (Fernando2015, Garcia2013)
-# substituidos pela media das latLongs em cada trabalho
-# corrigida inconsistencia em Fernando2015
-################################################################################
-# pacote rgeos utilizado para Ilhas do Rio, mas foi descontinuado 
-# rgeos substituido por 'terra' e 'sf'
-# terra melhor para modelagem de processoas espaciais
-# Aqui apenas uma visualizacao simples com 'sp'/sf'
+# Script for drawing a map based on the sampling coordinates from different publications
 ################################################################################
 #install.packages("scatterpie")
 
@@ -21,8 +13,6 @@ library(ggplot2)
 #projecoes
 sf::sf_use_s2(FALSE)
 
-
-
 setwd("/home/arthurw/Documents/Corais/BIOM_Database/Mapa/")
 
 ################################################################################
@@ -33,8 +23,6 @@ setwd("/home/arthurw/Documents/Corais/BIOM_Database/Mapa/")
 # shapefile baixado do IBGE, e bem pesado
 # a pasta shapefile precisa conter os arquivos auxiliares
 # 
-# Avaliar posteriormente a biblioteca map_data() 
-# worldmap <- map_data ("world")
 ################################################################################
 
 IBGE <- readOGR(dsn = "/home/arthurw/Documents/PMBA/shapefile/", layer="lim_pais_a")
@@ -42,7 +30,6 @@ IBGE <- readOGR(dsn = "/home/arthurw/Documents/PMBA/shapefile/", layer="lim_pais
 # Original data as sf objects
 dt_sf <- st_as_sf(IBGE)
 dt_sf <- sf::st_buffer(dt_sf, dist = 0)
-
 
 ################################################################################
 
