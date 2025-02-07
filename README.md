@@ -1,6 +1,6 @@
 # Coral-Plastidiome
 
-Repository containing the scripts and results from the compilation and re-evaluation of published resultd of culture-independent coral microbiome studies. Results from this compilation are currently under review for publication.
+Repository containing the scripts and results from the compilation and re-evaluation of published results of culture-independent coral microbiome studies. Results from this compilation are currently under review for publication.
 
 Taxonomic assignment of microalgae plastid 16S gene sequences follows the flowchart below. Sequences fortuitously observed in coral-microbiome studies are re-evaluated based on consensus-blastn searches against the phytoRef/PR2 database, version 4.12 (Decelle et al 2015).
 
