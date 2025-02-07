@@ -5,7 +5,7 @@
 # 2 - Dereplication with DADA2:
 # 3 - Taxonomic classification of representative sequences
 # 
-# In this script, 16S-V4 metabarcoding data from the manuscript below are used as ana example:
+# In this script, 16S-V4 metabarcoding data from the manuscript below are used as an example:
 #
 # Vilela CL, Villela HD, Rachid CT, Carmo FL, Vermelho AB, Peixoto RS. Exploring the diversity 
 # and biotechnological potential of cultured and uncultured coral-associated bacteria. 
