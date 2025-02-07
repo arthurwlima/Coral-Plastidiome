@@ -9,7 +9,7 @@ Taxonomic assignment of microalgae plastid 16S gene sequences fortuitously obser
 </p>
 
 
-Pires CP, Villela LB, Moura RL, Salomon PS, Silva-Lima AW. Hidden microalgae diversity in reef systems: exploring plastid communities in Southwestern Atlantic Ocean coral microbiomes submitted to PeerJ
+Pires CP, Villela LB, Moura RL, Salomon PS, Silva-Lima AW. Hidden microalgae diversity in reef systems: exploring plastid communities in Southwestern Atlantic Ocean coral microbiomes. #Submitted to PeerJ
 
 
 Decelle J, Romac S, Stern RF, Bendif EM, Zingone A, Audic S, Guiry MD, Guillou L, Tessier D, Le Gall F, Gourvil P. Phyto REF: a reference database of the plastidial 16S rRNA gene of photosynthetic eukaryotes with curated taxonomy. Molecular ecology resources. 2015 Nov;15(6):1435-45.
