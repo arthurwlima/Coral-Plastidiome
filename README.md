@@ -7,5 +7,5 @@ This study focus on the taxonomic and ecological evaluation of microalgae plasti
 
 
 <p align="center">
-<img src="fluxoxograma_geral.33.png" width="700" alt="hi" class="inline"/>
+<img src="Fig.%20S1%20flowchart.pdf" width="700" alt="hi" class="inline"/>
 </p>
