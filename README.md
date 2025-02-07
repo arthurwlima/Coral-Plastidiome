@@ -7,5 +7,5 @@ This study focus on the taxonomic and ecological evaluation of microalgae plasti
 ![image description](https://github.com/arthurwlima/Coral-Plastidiome/blob/main/Fig.%20S1%20flowchart.pdf)
 
 <p align="center">
-<img src="Fig. S1 flowchart.pdf" height="300" alt="hi" class="inline"/>
+<img src="Fig. S1 flowchart.pdf" height="128" alt="hi" class="inline"/>
 </p>
