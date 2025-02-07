@@ -130,8 +130,7 @@ d2.wide <- pivot_wider(d2.simp, names_from =host_genus, values_from = host_genus
 d2.wide$Total <- rowSums(d2.wide[,names(d2.wide)[4:10]])
 
 ############################################################################# ###
-# Plot
-# Less efficient, but for now plotting the whole of Brazil and cutting coordinates in ggplot
+# Plot: plotting the whole of Brazil and cutting coordinates in ggplot
 ############################################################################ ### #
 
 p1 <- ggplot(data=dt_sf) +
