@@ -7,10 +7,6 @@
 # plague-affected Mussismilia braziliensis corals. Microbial ecology. 2013 May;65:1076-86.
 ##############################################################
 
-# Concatenate all samples into a single fasta file
-cat *.fna > Garcia2013.fasta
-rm *.fna
-
 ########################################################################
 # In shotgun studies, random genome fragments are sequenced.
 # Select sequences containing ribosomal genes (16S and 18S) 
