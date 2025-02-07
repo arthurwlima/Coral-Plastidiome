@@ -80,8 +80,7 @@ d2.wide <- pivot_wider(d2.simp, names_from =host_genus, values_from = host_genus
 d2.wide$Total <- rowSums(d2.wide[,names(d2.wide)[4:10]])
 
 ################################################################################
-# Plot
-# Menos eficiente, mas por enquanto plotando o Brasil todo e cortando as cordenadas no ggplot
+# Plot: por enquanto plotando o Brasil todo e cortando as cordenadas no ggplot
 ################################################################################
 
 p1 <- ggplot(data=dt_sf) +
