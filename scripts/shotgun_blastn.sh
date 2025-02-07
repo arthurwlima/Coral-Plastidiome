@@ -35,7 +35,7 @@ qiime tools import  --type 'FeatureData[Sequence]' \
   --output-path Garcia2013.silva138.full.qza &
 
 qiime feature-classifier classify-consensus-blast \
-  --i-query Silveira2017.silva138.full.qza \
+  --i-query Garcia2013.silva138.full.qza \
   --i-reference-reads "$DATA_DIR/silva138/silva-138-99-seqs.qza" \
   --i-reference-taxonomy "$DATA_DIR/silva138/silva-138-99-tax.qza" \
   --o-classification Garcia2013.silva138.full.Silva138.tax.qza \
