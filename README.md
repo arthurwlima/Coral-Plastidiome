@@ -6,6 +6,3 @@ This study focus on the taxonomic and ecological evaluation of microalgae plasti
 
 ![download](https://github.com/user-attachments/assets/58aae41c-1b8c-496e-87fc-346df0f036c3)
 
-<p align="center">
-<img src="Fig. S1 flowchart.pdf" height="128" alt="hi" class="inline"/>
-</p>
