@@ -1,7 +1,10 @@
 ####################### 20210813 #######################################
 # Script to classify microalgae sequences in coral microbiome results - 
-# SHOTGUN sequencing results
-# 
+# metagenomic SHOTGUN sequencing results. 
+# Example from: 
+# Garcia GD, Gregoracci GB, de O. Santos E, Meirelles PM, Silva GG, Edwards R, Sawabe T, 
+# Gotoh K, Nakamura S, Iida T, de Moura RL. Metagenomic analysis of healthy and white 
+# plague-affected Mussismilia braziliensis corals. Microbial ecology. 2013 May;65:1076-86.
 ##############################################################
 
 # Concatenate all samples into a single fasta file
@@ -13,7 +16,7 @@ rm *.fna
 # Select sequences containing ribosomal genes (16S and 18S) 
 #    with 'sortmerna'                                       
 # Afterward, separate processing is required:                
-#  		16S: Bacteria and Eukaryotes (plastids)                 
+#  	16S: Bacteria and Eukaryotes (plastids)                 
 #		18S: Eukaryotes (nuclear)                              
 ########################################################################
 
@@ -47,24 +50,24 @@ qiime feature-classifier classify-consensus-blast \
 # Filter OTU occurrence tables based on taxonomies
 ########################################################################
 qiime taxa filter-seqs \
-  --i-sequences ./Silveira2017.silva138.full.qza \
-  --i-taxonomy ./Silveira2017.silva138.full.Silva138.tax.qza \
+  --i-sequences ./Garcia2013.silva138.full.qza \
+  --i-taxonomy ./Garcia2013.silva138.full.Silva138.tax.qza \
   --p-include "d__Eukaryota;" \
-  --o-filtered-sequences Silveira2017.silva138.Eukarya.18S.full.Silva138.seqs.qza
+  --o-filtered-sequences Garcia2013.silva138.Eukarya.18S.full.Silva138.seqs.qza
 
 qiime taxa filter-seqs \
-  --i-sequences ./Silveira2017.silva138.full.qza \
-  --i-taxonomy ./Silveira2017.silva138.full.Silva138.tax.qza \
+  --i-sequences ./Garcia2013.silva138.full.qza \
+  --i-taxonomy ./Garcia2013.silva138.full.Silva138.tax.qza \
   --p-include "d__Bacteria;","d__Archaea;" \
-  --o-filtered-sequences Silveira2017.silva138.Prokaryota.16S.full.Silva138.seqs.qza
+  --o-filtered-sequences Garcia2013.silva138.Prokaryota.16S.full.Silva138.seqs.qza
 
 ########################################################################
 # Filter plastid SEQUENCES for classification with phytoREF/PR2 database
 qiime taxa filter-seqs \
-  --i-sequences ./Silveira2017.silva138.full.qza \
-  --i-taxonomy ./Silveira2017.silva138.full.Silva138.tax.qza \
+  --i-sequences ./Garcia2013.silva138.full.qza \
+  --i-taxonomy ./Garcia2013.silva138.full.Silva138.tax.qza \
   --p-include "o__Chloroplast;" \
-  --o-filtered-sequences Silveira2017.silva138.full.Eukarya.16S.plastid-sequences.qza
+  --o-filtered-sequences Garcia2013.silva138.full.Eukarya.16S.plastid-sequences.qza
 
 ########################################################################
 ########### Taxonomic Classification - Microalgae ######################
@@ -73,10 +76,10 @@ qiime taxa filter-seqs \
 ### https://pr2-database.org/
 # Consensus Blastn
 qiime feature-classifier classify-consensus-blast \
-  --i-query Silveira2017.silva138.full.Eukarya.16S.plastid-sequences.qza \
+  --i-query Garcia2013.silva138.full.Eukarya.16S.plastid-sequences.qza \
   --i-reference-reads "$DATA_DIR/PR2_4.12.0.mothur.qza" \
   --i-reference-taxonomy "$DATA_DIR/PR2_4.12.0.mothur.taxonomy.qza" \
-  --o-classification Silveira2017.silva138.full.Eukarya.16S.plastid-sequences.PR2_4.12.0.blastn.qza \
+  --o-classification Garcia2013.silva138.full.Eukarya.16S.plastid-sequences.PR2_4.12.0.blastn.qza \
   --verbose --p-maxaccepts 3 &
 
 ########################################################################
@@ -84,10 +87,10 @@ qiime feature-classifier classify-consensus-blast \
 # Run again with Silva 132 for consistency with other studies
 
 qiime feature-classifier classify-consensus-blast \
-  --i-query Silveira2017.silva138.Prokaryota.16S.full.Silva138.seqs.qza \
+  --i-query Garcia2013.silva138.Prokaryota.16S.full.Silva138.seqs.qza \
   --i-reference-reads "$DATA_DIR/SILVA_132_rep_99_16S.qza" \
   --i-reference-taxonomy "$DATA_DIR/SILVA_132_rep_99_16S_taxonomy7.qza" \
-  --o-classification Silveira2017.silva138.full.Prokaryota.16S.Silva132.blastn.qza \
+  --o-classification Garcia2013.silva138.full.Prokaryota.16S.Silva132.blastn.qza \
   --verbose &
 
 ############################# END ######################################
